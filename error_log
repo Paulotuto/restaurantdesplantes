@@ -1,0 +1,59 @@
+[11-Mar-2024 18:56:23 UTC] [critical] Error thrown while running command "'d:f:l'". Message: "An exception occurred in the driver: SQLSTATE[HY000] [1045] Access denied for user 'u693597802_admin'@'127.0.0.1' (using password: YES)"
+[11-Mar-2024 18:57:14 UTC] [critical] Error thrown while running command "'d:f:l'". Message: "An exception occurred in the driver: SQLSTATE[HY000] [1045] Access denied for user 'u888966928_admin'@'127.0.0.1' (using password: YES)"
+[11-Mar-2024 18:57:25 UTC] [critical] Error thrown while running command "'d:m:m'". Message: "An exception occurred in the driver: SQLSTATE[HY000] [1045] Access denied for user 'u888966928_admin'@'127.0.0.1' (using password: YES)"
+[11-Mar-2024 18:58:27 UTC] [critical] Error thrown while running command "'doctrine:migration:migrate'". Message: "An exception occurred in the driver: SQLSTATE[HY000] [1045] Access denied for user 'u888966928_admin'@'127.0.0.1' (using password: YES)"
+[11-Mar-2024 18:59:43 UTC] [critical] Error thrown while running command "'doctrine:migration:migrate'". Message: "An exception occurred in the driver: SQLSTATE[HY000] [1045] Access denied for user 'u888966928_admin'@'127.0.0.1' (using password: YES)"
+[11-Mar-2024 18:59:47 UTC] [critical] Error thrown while running command "'d:f:l'". Message: "An exception occurred in the driver: SQLSTATE[HY000] [1045] Access denied for user 'u888966928_admin'@'127.0.0.1' (using password: YES)"
+[11-Mar-2024 19:00:39 UTC] [critical] Error thrown while running command "'d:f:l'". Message: "An exception occurred in the driver: SQLSTATE[HY000] [1045] Access denied for user 'u888966928_admin'@'127.0.0.1' (using password: YES)"
+[22-Mar-2024 15:37:20 UTC] [critical] Error thrown while running command "'cache:clear*'". Message: "Command "cache:clear*" is not defined.
+
+Did you mean one of these?
+    cache:clear
+    cache:pool:clear
+    cache:pool:delete
+    cache:pool:invalidate-tags
+    cache:pool:list
+    cache:pool:prune
+    cache:warmup"
+[22-Mar-2024 15:37:22 UTC] [critical] Error thrown while running command "'cache:clear*'". Message: "Command "cache:clear*" is not defined.
+
+Did you mean one of these?
+    cache:clear
+    cache:pool:clear
+    cache:pool:delete
+    cache:pool:invalidate-tags
+    cache:pool:list
+    cache:pool:prune
+    cache:warmup"
+[23-Mar-2024 14:47:25 UTC] [critical] Error thrown while running command "cache:clear 'debug=true'". Message: "No arguments expected for "cache:clear" command, got "debug=true"."
+[26-Mar-2024 12:55:44 UTC] [critical] Error thrown while running command "'make:entity'". Message: "Command "make:entity" is not defined.
+
+Did you mean one of these?
+    make:admin:crud
+    make:admin:dashboard"
+[26-Mar-2024 12:57:12 UTC] [critical] Error thrown while running command "'make:entity'". Message: "Command "make:entity" is not defined.
+
+Did you mean one of these?
+    make:admin:crud
+    make:admin:dashboard"
+[26-Mar-2024 13:16:44 UTC] [critical] Error thrown while running command "make:admin:crud EvasionEtTerroir". Message: "No arguments expected for "make:admin:crud" command, got "EvasionEtTerroir"."
+[30-Mar-2024 14:32:33 UTC] [critical] Error thrown while running command "'make:entity'". Message: "Command "make:entity" is not defined.
+
+Did you mean one of these?
+    make:admin:crud
+    make:admin:dashboard"
+[30-Mar-2024 14:34:32 UTC] [critical] Error thrown while running command "'make:entity'". Message: "Command "make:entity" is not defined.
+
+Did you mean one of these?
+    make:admin:crud
+    make:admin:dashboard"
+[07-Apr-2024 08:21:06 UTC] [critical] Error thrown while running command "'make:entity'". Message: "Command "make:entity" is not defined.
+
+Did you mean one of these?
+    make:admin:crud
+    make:admin:dashboard"
+[07-Apr-2024 08:27:53 UTC] [critical] Error thrown while running command "'make:entity'". Message: "Command "make:entity" is not defined.
+
+Did you mean one of these?
+    make:admin:crud
+    make:admin:dashboard"

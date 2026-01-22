@@ -1,0 +1,197 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Restaurant Des Plantes - Durtal{% endblock %}
+
+{% block meta_description %}Le Restaurant des plantes à Durtal. Venez éveiller vos papilles en (re)découvrant notre carte, basée sur des produits locaux de qualité.{% endblock %}
+
+{% block headerMenuItem %}Notre carte{% endblock %}
+
+
+
+{% block javascripts %}
+    <script src="{{ asset('scripts/script_main.js') }}"></script>
+    <script>
+    function scrollToTarget(event) {
+    // Empêche le comportement par défaut du lien
+    event.preventDefault();
+
+    // Sélectionne l'élément cible
+    const targetElement = document.querySelector('.presentation');
+
+    // Fait défiler la page vers l'élément cible
+    targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
+    function scrollToCarte(event) {
+        // Empêche le comportement par défaut du lien
+        event.preventDefault();
+
+        // Sélectionne l'élément cible
+        const targetElement = document.getElementById('carte');
+
+        // Fait défiler la page vers l'élément cible
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
+
+
+    </script>
+{% endblock %}
+
+{% block body %}
+<a class="reserver" href="{{ path('app_contact') }}">Reserver</a>
+<main class="main">
+    <section class="main__slider slider">
+        <img src="{{ asset('images/slider/slider_2.jpg') }}" alt="slider1" class="slider__img">
+        <section class="slider__card">
+            <h1 class="slider__title">Restaurant des Plantes</h1>
+            <p class="slider__adress">Durtal <span>54 Avenue d'Angers 49430</span></p>
+            <a class="slider__b-ensavoirplus" onclick="scrollToTarget(event)" href="">En savoir plus</a>
+        </section>
+    </section>
+    <section class="main__horaires horaires">
+        <h2 class="horaires__title">Horaires</h2>
+        <ul class="horaires__items">
+            {% for horaire in horaires %}
+            <li class="horaires__item">
+                <h3 class="horaires__item-title">{{ horaire.jour }}</h3>
+                <p style="max-width:90%;text-align:center" class="horaires__item-heure1">{{ horaire.midi }}</p>
+                <p style="max-width:90%;text-align:center" class="horaires__item-heure2">{{ horaire.soir}}</p>
+            </li>
+            {% endfor %}
+
+        </ul>
+    </section>
+    <div style="width:100%;display:flex;position:relative;flex-direction:column;align-items:center">
+    <section class="main__caroussel caroussel">
+        {% for article in articles %}
+        <figure class="caroussel__item">
+            <img src="{{ asset(article.image) }}" alt="">
+            <figcaption style="max-width:320px">
+                <h3>{{ article.titre }}</h3>
+                <p style="    overflow: hidden;
+    text-overflow: ellipsis;
+    /* max-height: 4vh; */
+    /* white-space: nowrap; */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    /* overflow: hidden;">{{ article.description }}</p>
+            </figcaption>
+            <button class="caroussel__item-popup-button" style="width:fit-content;
+             border: none;
+             cursor:pointer;
+             background-color:#f9efef;
+             color:#384132;
+             font-weight:bold;
+             text-align:left;
+             padding: 0">Voir Plus</button>
+        </figure>
+        <figure class="caroussel__item-popup hidden caroussel__item-popup-figure">
+            <img class="caroussel__item-popup-img" style="max-height:430px;object-fit:contain" src="{{ asset(article.image) }}" alt="">
+            <figcaption class="caroussel__item-popup-figcaption" style="max-width:320px">
+                <h3 class="caroussel__item-popup-h3" style="font-size:1.6rem;
+                margin-top:1vh;
+                ">{{ article.titre }}</h3>
+                <p class="caroussel__item-popup-p">{{ article.description }}</p>
+            </figcaption>
+        </figure>
+        {% endfor %}
+
+
+    </section>
+        <div style="text-align:center;cursor:pointer" class="arrow_left"><i class="fa-solid fa-arrow-left"></i></div>
+    <div style="text-align:center;cursor:pointer" class="arrow_right"><i class="fa-solid fa-arrow-right"></i></div>
+    </div>
+
+    <section class="main__presentation presentation">
+        <section class="presentation__cloche">
+            <svg width="749" height="90" viewBox="0 0 749 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="266" y1="57.5" y2="57.5" stroke="#384132"/>
+                <line x1="749" y1="57.5" x2="483" y2="57.5" stroke="#384132"/>
+                <path d="M374.521 19.2857C388.194 19.2857 401.307 23.6881 410.975 31.5244C420.644 39.3608 426.076 49.9891 426.076 61.0714C426.076 62.7764 425.24 64.4115 423.752 65.6171C422.265 66.8227 420.248 67.5 418.144 67.5H330.897C328.794 67.5 326.776 66.8227 325.289 65.6171C323.801 64.4115 322.966 62.7764 322.966 61.0714C322.966 49.9891 328.397 39.3608 338.066 31.5244C347.734 23.6881 360.847 19.2857 374.521 19.2857ZM374.521 19.2857V9.64282M322.966 80.3571H426.076" stroke="#384132" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <p>Notre Restaurant exprime ce que nous aimons, une cuisine de produits dans une ambiance sobre et élegante.</p>
+            <p>Le Chef Frederic Georget et son équipe.</p>
+        </section>
+        <section class="presentation__fourch pb-2">
+            <svg width="750" height="90" viewBox="0 0 750 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M398.143 41.7857C406.664 41.7857 413.571 33.1512 413.571 22.4999C413.571 11.8487 406.664 3.21423 398.143 3.21423C389.622 3.21423 382.714 11.8487 382.714 22.4999C382.714 33.1512 389.622 41.7857 398.143 41.7857Z" stroke="#F9EFEF" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M398.143 41.7857V86.7857M352.5 3.21423V86.7857M368.571 3.21423V19.2857C368.571 21.3962 368.156 23.4861 367.348 25.4359C366.54 27.3858 365.356 29.1575 363.864 30.6499C362.372 32.1422 360.6 33.3261 358.65 34.1337C356.7 34.9414 354.61 35.3571 352.5 35.3571C348.237 35.3571 344.15 33.6639 341.136 30.6499C338.122 27.6359 336.428 23.5481 336.428 19.2857V3.21423" stroke="#F9EFEF" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="266" y1="50.5" y2="50.5" stroke="#F9EFEF"/>
+                <line x1="750" y1="50.5" x2="484" y2="50.5" stroke="#F9EFEF"/>
+            </svg>
+            <p>Nous vous proposons des plats qui évoluent quotidiennement en fonction du marché, des saisons et de nos producteurs.</p>
+            <p>Selon l’inspiration du chef, le produit est mis en scene pour les appetits ouverts et curieux.</p>
+        </section>
+    </section>
+    {% if mets is not empty %}
+    <section id="carte" class="h-fit flex flex-col w-full pt-8 pb-12">
+        <h2 class="text-4xl w-3/4 mx-auto mt-4 mb-8 font-bold">La carte</h2>
+        <div class="w-3/4 grid md:grid-cols-2 gap-x-20 gap-y-12 mx-auto">
+            {% if mets|filter((m)=>m.type == "entree") is not empty %}
+            <div class="flex flex-col w-full ">
+                <h3 class="text-xl mb-2 underline">Les entrées</h3>
+                <ul>
+                    {% for entree in mets|filter((m)=>m.type == "entree") %}
+                        <li class="flex justify-between">
+                            <p>{{ entree.name }}</p>
+                            <p>{{ entree.price }}€</p>
+                        </li>
+                    {% endfor %}
+
+                </ul>
+            </div>
+            {% endif %}
+            {% if mets|filter((m)=>m.type == "plat") is not empty %}
+            <div class="flex flex-col w-full">
+                <h3 class="text-xl mb-2 underline">Les plats</h3>
+                <ul>
+                    {% for plat in mets|filter((m)=>m.type == "plat") %}
+                    <li class="flex justify-between">
+                        <p>{{ plat.name }}</p>
+                        <p>{{ plat.price }}€</p>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+            {% if mets|filter((m)=>m.type == "fromage") is not empty %}
+            <div class="flex flex-col w-full">
+                <h3 class="text-xl mb-2 underline">Les fromages</h3>
+                <ul>
+                    {% for fromage in mets|filter((m)=>m.type == "fromage") %}
+                        <li class="flex justify-between">
+                            <p>{{ fromage.name }}</p>
+                            <p>{{ fromage.price }}€</p>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+            {% if mets|filter((m)=>m.type == "dessert") is not empty %}
+            <div class="flex flex-col w-full">
+                <h3 class="text-xl mb-2 underline">Les desserts</h3>
+                <ul>
+                    {% for dessert in mets|filter((m)=>m.type == "dessert") %}
+                    <li class="flex justify-between">
+                        <p>{{ dessert.name }}</p>
+                        <p>{{ dessert.price }}€</p>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+        {% else %}
+    <section id="carte" class="h-fit flex flex-col w-full pt-8 pb-12">
+        <h2 class="text-4xl w-3/4 mx-auto mt-4 mb-8 font-bold">La carte</h2>
+        <div class="w-3/4 mx-auto">
+            <p>La carte est en cours de préparation, merci de revenir plus tard.</p>
+        </div>
+    </section>
+    {% endif %}
+
+    <a href="" class="main__b-reserver"></a>
+
+</main>
+{% endblock %}

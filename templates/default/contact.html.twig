@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Restaurant Des Plantes - Durtal{% endblock %}
+
+{% block meta_description %}Description de la page contact{% endblock %}
+
+{% block headerMenuItem %}Accueil{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('scripts/script_cave.js') }}"></script>
+<script src="{{ asset('scripts/script_main.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+<div class="grid lg:grid-cols-2 pt-[8vh] min-h-[80vh]">
+<main class="w-[90%] lg:w-1/2 lg:mx-none mx-auto">
+<h1 class="text-center text-3xl mt-2 mb-4">Contactez-nous</h1>
+
+    {%if sended %}
+    <p>Votre message a bien été envoyé</p>
+    {% else %}
+        {{ form_start(form, { attr: { class: "space-y-4 bg-white p-6 shadow-md rounded-lg" } }) }}
+        {{ form_row(form.name, { attr: { class: "w-full p-2 border rounded-lg focus:ring focus:ring-blue-200" } }) }}
+        {{ form_row(form.email, { attr: { class: "w-full p-2 border rounded-lg focus:ring focus:ring-blue-200" } }) }}
+        {{ form_row(form.message, { attr: { class: "w-full p-2 border rounded-lg focus:ring focus:ring-blue-200" } }) }}
+        {{ form_row(form.captcha, { attr: { class: "w-full p-2 border rounded-lg focus:ring focus:ring-blue-200 mt-2" } }) }}
+
+        <button type="submit" class="w-full bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-lg">
+            Envoyer
+        </button>
+        {{ form_end(form) }}
+
+    {% endif %}
+</main>
+<div style="text-align: center;">
+{% if partenaires is empty %}<h2 class="partenaires__title">Bientôt : Nos partenaires</h2>{% else %}<h2 class="text-center text-3xl mt-2">Nos partenaires</h2>{% endif %}
+    <aside class="grid grid-cols-2 mt-12 gap-4">
+    {% for partenaire in partenaires %}
+
+        {% if partenaire.lien is not null %}
+            <a href="{{ partenaire.lien }}">
+        {% endif %}
+        <figure class="flex flex-col items-center">
+        {% if partenaire.image is null %}
+            <div class="w-32 h-32 rounded-full bg-gray-200">
+            </div>
+        {% else %}
+            <img class="w-32 h-32 object-contain" src="{{ partenaire.image }}" alt="">
+        {% endif %}
+            <figcaption>{{ partenaire.nom }}</figcaption>
+        </figure>
+        {% if partenaire.lien is not null %}
+            </a>
+        {% endif %}
+
+       {% endfor %}
+
+    </aside>
+</div>
+</div>
+{% endblock %}

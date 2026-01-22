@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Restaurant Des Plantes - Durtal{% endblock %}
+
+{% block meta_description %}Description de la page cave{% endblock %}
+
+{% block headerMenuItem %}Accueil{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('scripts/script_cave.js') }}"></script>
+<script src="{{ asset('scripts/script_main.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+<main class="cave">
+    <h1>Decouvrez les vins conseillés par le chef</h1>
+    <ul>
+        {% for vin in vins %}<li>
+            <figure style="cursor:pointer">
+                <img src="{{ asset(vin.image) }}" alt="Elephant at sunset" />
+                <figcaption>
+                    <p>{{ vin.nom }}</p>
+                    <p>{{ vin.description }}</p>
+                </figcaption>
+            </figure>
+        </li>
+        <section class="popup hidden">
+            <i class="fa-solid fa-xmark"></i>
+            <img src="{{ asset(vin.image)}}" alt="Elephant at sunset" />
+            <section>
+            <p>{{ vin.nom }}</p>
+            <p>{{ vin.description }}</p>
+            <!--<p>2003</p>-->
+            </section>
+        </section>
+        {% endfor %}<li>
+
+
+
+    </ul>
+
+</main>
+{% endblock %}

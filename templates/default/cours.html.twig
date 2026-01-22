@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Restaurant Des Plantes - Durtal{% endblock %}
+{% block meta_description %}Description de la page cours{% endblock %}
+
+{% block headerMenuItem %}Accueil{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('scripts/script_cave.js') }}"></script>
+<script src="{{ asset('scripts/script_main.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+<main class="cours" style="min-height:90vh">
+<h1>Retrouvez nos cours en compagnie du chef</h1>
+<div style="display:flex">
+<section style="display:flex;flex-direction:column;gap:3vh">
+<p>Le chef propose 2 heures de cours de cuisine le jeudi soir à partir de 18h30. A l’issu de la réalisation d'une entrée, un plat et un dessert, une dégustation du menu préparé est proposée.</p>
+<p>Tarifs :<span style="display:block"> 60€ par cours individuel.</span><span style="display:block">55€ par cours pour le conjoint.</span> </p>
+<p>De plus, les conjoints sont les bienvenus pour se joindre à nous pour le dîner, sur réservation.</p>
+</section>
+<img style="width:40%;border-radius:8px" src="{{ asset('images/slider/slider_1.png')}}" alt="">
+</div>
+
+
+
+<h2>Le repas du moment</h2>
+
+<div><i class="fa-solid fa-arrow-down"></i><i class="fa-solid fa-arrow-down "></i><i class="fa-solid fa-arrow-down "></i></div>
+<section class="cours__section">
+
+    <ul>
+    <h3 style="font-size:2.4rem;text-align:center">Menu</h3>
+        <li>
+        Entrée : {{ cours[0].entree }}
+        </li>
+        <li>
+        Plat : {{ cours[0].plat }}
+        </li>
+        <li>
+        Dessert : {{ cours[0].dessert }}
+        </li>
+    </ul>
+    <ul>
+    <h3 style="font-size:2.4rem;text-align:center">Dates</h3>
+    {% for date in cours[0].dates %}
+        <li>
+        {{ date }}
+        </li>
+
+        {% endfor %}
+        
+    </ul>
+    
+</section>
+</main>
+{% endblock %}

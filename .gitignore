@@ -1,0 +1,12 @@
+
+###> symfony/asset-mapper ###
+/public/assets/
+/assets/vendor/
+###< symfony/asset-mapper ###
+
+###> symfony/framework-bundle ###
+# .env.local is a local configuration file that should not be committed to the Git repository.
+.env.local
+.env
+/vendor/
+/var/
